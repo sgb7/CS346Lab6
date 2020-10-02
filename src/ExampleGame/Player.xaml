@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="ExampleGame.Player"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExampleGame"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Polygon Points="0,0 100,0 100,100, 0,100" Stroke="Black" StrokeThickness="4" Fill="Yellow" x:Name="PlayerShape" />
+    </Grid>
+</UserControl>
