@@ -89,6 +89,11 @@ namespace ExampleGame
             byte[] package = new byte[1024];
 
             //TODO: build package payload
+            string x = xPos.ToString();
+            string y = yPos.ToString();
+            string coords = x + "," + y;
+            package = Encoding.UTF8.GetBytes(coords);
+
             try
             {
                 if(ClientIpAddress.Length > 0)
@@ -121,6 +126,15 @@ namespace ExampleGame
                     byte[] clientData = client.Receive(ref remoteClient);
                     Debug.Write("data received");
                     //TODO: process data
+                    string data = Encoding.UTF8.GetString(clientData);
+                    string[] coords = data.Split(','); 
+                    double yPos = double.Parse(coords[0]);
+                    double xPos = double.Parse(coords[1]);
+                    Application.Current.Dispatcher.Invoke(new Action(() => {
+                        Canvas.SetTop(RemotePlayer, xPos);
+                        Canvas.SetLeft(RemotePlayer, yPos);
+                    }));
+
                 }
             }
             catch(Exception ex)
